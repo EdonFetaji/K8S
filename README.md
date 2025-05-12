@@ -1,5 +1,6 @@
 # K8S
-simple repo. Including a flask application, and using redis for caching. Deployed in a kubernetes cluster as a sidecar to the flask app.
+This repository Includes a flask application, and using redis for caching. Deployed in a kubernetes cluster as a sidecar to the flask app.
+2 replicas deployed, and hosted through service controller (NodePort). Really nice example for load balancing. You can visually see which instance / replica you are getting, by the counter displayed on the screen 
 
 how to run :
 

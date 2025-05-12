@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-redis-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-redis
+  template:
+    metadata:
+      name: flask
+      labels:
+        app: flask-redis
+    spec:
+      containers:
+
+        - name: flask
+          image: edon505/flask-redis-test:latest
+          ports:
+          - containerPort: 80
+          env:
+            - name: FLASK_PORT
+              value: "80"
+            - name: REDIS_PORT
+              value: "6379"
+
+        - name: redis
+          image: redis:latest
+          ports:
+            - containerPort: 6379
